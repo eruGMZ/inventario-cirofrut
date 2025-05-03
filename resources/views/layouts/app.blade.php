@@ -34,3 +34,5 @@
         </div>
     </body>
 </html>
+
+@livewire('sidebar-menu')
