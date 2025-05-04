@@ -11,6 +11,6 @@ class SidebarMenu extends Component
 
     public function render()
     {
-        return view('livewire.sidebar-menu', ['initDropedItems' => $this->getItemsByUrlPrefix(), 'html' => $this->getHTMLSidebar()]);
+        return view('livewire.sidebar-menu', ['initDropedItems' => $this->getItemsByUrlPrefix(), 'html' => $this->getSidebar()]);
     }
 }

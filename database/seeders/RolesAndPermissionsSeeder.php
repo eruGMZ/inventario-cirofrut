@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -37,6 +38,12 @@ class RolesAndPermissionsSeeder extends Seeder
             $role = Role::create(['name' => $roleName]);
 
             $permission === 'all' ? $role->syncPermissions(Permission::all()) : $role->syncPermissions($permission);
+        }
+
+        $rolesPos = config('roles_permissions.roles_permissions_config.roles_pos_user');
+
+        foreach (User::all() as $user) {
+            $user->syncRoles([$rolesPos[$user->rol]]);
         }
     }
 }
