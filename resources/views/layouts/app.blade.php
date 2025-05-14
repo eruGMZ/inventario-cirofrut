@@ -19,21 +19,24 @@
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
-
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div id="divMainPageContent" class="py-4 relative lg:ml-64">
+
+                    <!-- Page Heading -->
+                    @isset($header)
+                        <header class="bg-white shadow mt-[50px]">
+                            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                                {{ $header }}
+                            </div>
+                        </header>
+                    @endisset
+
+                    <div>
+                        {{ $slot }}
+                    </div>
+                </div>
             </main>
         </div>
     </body>
 </html>
-
-@livewire('sidebar-menu')
