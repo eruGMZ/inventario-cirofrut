@@ -19,23 +19,23 @@ abstract class BaseService
         return $this->model->query()->with($relaciones);
     }
 
-    public function mostrar(int $id)
+    public function mostrar(int $id): Model
     {
         return $this->model->findOrFail($id);
     }
 
-    public function crear(array $data)
+    public function crear(array $data): Model
     {
         return $this->model->create($data);
     }
 
-    public function editar(array $data, int $id)
+    public function editar(array $data, int $id): bool
     {
         $model = $this->mostrar($id);
         return $model->update($data);
     }
 
-    public function eliminar(int $id)
+    public function eliminar(int $id): bool
     {
         $model = $this->mostrar($id);
         $model->estatus = 'Inactivo';
